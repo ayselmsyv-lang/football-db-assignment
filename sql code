@@ -1,6 +1,3 @@
---Aysel Musayeva assignment #1
---main table (Qarabag-Nyukasl)
-
 CREATE TABLE Team (
   team_id INT,
   team_name VARCHAR(255),
