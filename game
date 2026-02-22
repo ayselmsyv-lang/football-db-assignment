@@ -1,0 +1,65 @@
+--Aysel Musayeva assignment #1
+--main table (Qarabag-Nyukasl)
+
+CREATE TABLE Team (
+  team_id INT,
+  team_name VARCHAR(255),
+  Primary key(team_id)
+);
+
+create table referee(
+  referee_id int,
+  name varchar(255),
+  primary key (referee_id)
+);
+
+CREATE TABLE game ( 
+  match_id INT ,
+  stadium VARCHAR(255),
+  referee_id int,
+  home_team_id int,
+  away_team_id int,
+  Primary key(match_id),
+  
+  foreign key (home_team_id) references Team(team_id),
+  foreign key (referee_id) references referee(referee_id),
+  foreign key (away_team_id) references team(team_id)
+);
+
+Create table fans(
+  fan_id INT,
+  name VARCHAR(255),
+  age INT,
+  team_suppported VARCHAR(255),
+  Primary key(fan_id),
+  foreign key (team_supported) references Team(team_name)
+);
+
+Create table merch(
+  merch_id INT,
+  item_name VARCHAR(255),
+  price INT,
+  team_id INT,
+  Primary key(merch_id),
+  foreign key (team_id) references Team(team_id)
+);
+
+
+Insert into Team (team_id,team_name) Values (1,'Qarabag'),(2,'Nyukasl');  
+INSERT INTO referee(referee_id,name) values (1,'Kamranbey Rehimov');
+insert into game (match_id,stadium,referee_id,home_team_id,away_team_id) values (1,'Tofig Bahramov',1,1,2);
+
+INSERT into merch(merch_id,item_name,price,team_id)
+values (1,'Qarabag Scarf',20,1),(2,'Nyukasl Shirt',50,2);
+
+insert into fans(fan_id,name,age,team_supported) 
+values 
+    (1,'Aysel',18,'Qarabag'),(2,'Ayse',17,'Qarabag'),
+    (3,'Meryem',19,'Nyukasl'),(4,'Gunel',25,'Nyukasl');
+
+
+Select * from game;
+select * from Team;
+select * from fans;
+select * from merch;
+select * from referee;
