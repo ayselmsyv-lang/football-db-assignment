@@ -30,7 +30,7 @@ Create table fans(
   fan_id INT,
   name VARCHAR(255),
   age INT,
-  team_suppported VARCHAR(255),
+  team_supported VARCHAR(255),
   Primary key(fan_id),
   foreign key (team_supported) references Team(team_name)
 );
